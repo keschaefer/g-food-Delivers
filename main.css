@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #C4C1E0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
