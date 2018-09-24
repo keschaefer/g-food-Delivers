@@ -2,13 +2,13 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-family: 'Playfair Display', serif; 
-    background-color: #0F7145; 
+    font-family: 'Abel', sans-serif; 
+    background-color: #EDF0F3
 }
 
 header {
-    background-color:  #0F7145;
-    margin: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .main-visual {
@@ -16,9 +16,10 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    background-image: url("./media/restaurant-hero-image.jpg");
+    background-image: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/4344367/Candide-2.0.JPG");
     background-repeat: no-repeat;
-    height: 80vh;
+    background-size: cover;
+    height: 100vh;
     width: 100vw;
 }
 
@@ -28,18 +29,22 @@ header {
     width: 30vw;
 }
 
-.container {
+a:visited {
+    color: black;
+}
+
+.content {
     display: flex;
     flex-direction: row;
-    background-color:  #0F7145;
-    justify-content: space-between;
+    padding: 1em;
     width: 100vw;
 }
 
 .info {
-    margin: 1em;
+    padding: 2em;
 }
 
 footer {
+    margin: 2em;
     text-align: center;
 }

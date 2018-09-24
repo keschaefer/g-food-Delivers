@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'Playfair Display', serif; 
+}
+
+header {
+    margin: 1em;
+}
+
+main {
+    display: flex;  
+    flex-direction: row; 
+    margin: 5%;
+}
+
+.order-in-progress {
+    border: 1px solid black;
+    height: 300px;
+    width: 200px;
+}
+
+.form {
+    padding: 3em;
+}
+
+.quantity {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+footer {
+    text-align: center;
+}
