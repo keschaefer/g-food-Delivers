@@ -9,22 +9,38 @@ header {
     margin: 1em;
 }
 
+h4 {
+    font-size: 16px;
+}
+
 main {
     display: flex;  
     flex-direction: row; 
     margin: 5%;
 }
+.order-in-progress-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-.order-in-progress {
+.order-box {
     border: 1px solid black;
-    height: 300px;
-    width: 200px;
+    height:400px;
+    width: 250px;
 }
 
 .form {
-    padding: 3em;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
 }
 
+.info {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
 .quantity {
     display: flex;
     flex-direction: column;

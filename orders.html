@@ -22,48 +22,47 @@
     <div class="row">
       <div class="form col-md-8">
 
-        <div class="dropdown">
-          <button class="btn btn-info dropdown-toggle" id="foodMenuHead" type="button" data-toggle="dropdown"
+        <div class="dropdown row">
+          <button class="btn btn-info dropdown-toggle col-6 info" id="foodMenuHead" type="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Galvanize Eats Menu
           </button>
           <div class="dropdown-menu" id="foodMenuDropdown" aria-labelledby="dropdownMenuButton">
           </div>
+          <div class= "col-6 info">
+              <h4>Quantity</h4>
+              <input class="quantity" type="text" placeholder="Qty">
+            </div>
         </div>
-
-        <div>
-          <h4>Quantity</h4>
-          <input class="quantity" type="text" placeholder="Qty">
-        </div>
-
-        <button class="btn btn-info" id="add-items">Add Items
+        
+        <button class="btn btn-info info" id="add-items">Add Items
         </button>
 
-        <div class="name-full">
+        <div class="name-full info">
           <h4>Full Name</h4>
           <input type="text" placeholder="Jane Doe">
         </div>
 
-        <div class="phone">
+        <div class="phone info">
           <h4>Phone Number</h4>
           <input type="text" placeholder="555 555 5555">
         </div>
 
-        <div class="form-group">
+        <div class="form-group info">
           <h4 for="inputAddress">Street Address</h4>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
-        <div class="form-row">
+
+        <div class="form-row info">
           <div class="form-group col-md-6">
             <h4 for="inputCity">City</h4>
             <input type="text" class="form-control" id="inputCity">
           </div>
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-4 info">
             <h4 for="inputState">State</h4>
             <input type="text" id="inputState" class="form-control">
           </div>
-
-          <div class="form-group col-md-2">
+          <div class="form-group col-md-2 info">
             <h4 for="inputZip">Zip</h4>
             <input type="text" class="form-control" id="inputZip">
           </div>
@@ -72,10 +71,14 @@
         <button id="submit-order">Deliver It!</button>
 
       </div>
-      <div class="order-in-progress-cont col-md-4">
-        <div>
-          <ul class="order-in-progress">Your Order</ul>
-        </div>
+
+      <div class= "order-in-progress-cont col-md-4">
+          <h4>Your Order</h4>
+          <div class= "order-box"> 
+          <ul class="order-in-progress"></ul>
+          </div>
+        <h5 class= "sub-total">Subtotal</h5>
+        <h5>Total</h5>
       </div>
     </div>
   </main>

@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let submitOrder = document.querySelector('#submit-order')
     var menuSelection 
     var menuSelectionPrice
+    var subTotalTally = 0
+    var subTotal = document.querySelector('.sub-total')
+    var tax = 
 
     fetch('https://galvanize-eats-api.herokuapp.com/menu')
         .then(function (response) {
@@ -37,8 +40,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 var quantity = parseInt(document.querySelector('.quantity').value)
                 console.log(quantity)
                 let li = document.createElement('li')
-                li.innerHTML = `${menuSelection} ${quantity} ${quantity * menuSelectionPrice}`
+                li.innerHTML = `${menuSelection} Qty. ${quantity} ${quantity * menuSelectionPrice}`
                 orderList.appendChild(li)
+                subTotalTally += menuSelectionPrice * quantity
+                subTotal.innerHTML = `Subtotal    $ ${subTotalTally}`
                 foodMenuHead.innerHTML = "Add Additional Items"
             })
         })
