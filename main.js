@@ -1,7 +1,12 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    let foodMenuHead = document.querySelector('#foodMenuHead')
     let foodMenu = document.querySelector('#foodMenuDropdown')
     let orderList = document.querySelector('.order-in-progress')
+    let addItem = document.querySelector('#add-items')
+    let submitOrder = document.querySelector('#submit-order')
+    var menuSelection 
+    var menuSelectionPrice
 
     fetch('https://galvanize-eats-api.herokuapp.com/menu')
         .then(function (response) {
@@ -15,16 +20,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 button.setAttribute('value', data.menu[i].price)
                 button.setAttribute('class', 'button-border dropdown-item')
                 button.innerHTML = `${data.menu[i].name} $${data.menu[i].price}`
-                foodMenu.appendChild(button);
+                foodMenu.appendChild(button)
             }
             return data
         })
 
         .then(function (data) {
-            foodMenu.addEventListener("click", function (event) {
+            foodMenu.addEventListener("click", function(event) {
                 event.preventDefault()
-                let menuSelection = event.target.name
-                let menuSelectionPrice = event.target.value
+                foodMenuHead.innerHTML = event.target.innerHTML
+                menuSelection = event.target.name
+                menuSelectionPrice = event.target.value
+            }) 
+            addItem.addEventListener("click", function(event) {
+                event.preventDefault()
+                var quantity = parseInt(document.querySelector('.quantity').value)
+                console.log(quantity)
+                let li = document.createElement('li')
+                li.innerHTML = `${menuSelection} ${quantity} ${quantity * menuSelectionPrice}`
+                orderList.appendChild(li)
+                foodMenuHead.innerHTML = "Add Additional Items"
             })
         })
 
