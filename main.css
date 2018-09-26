@@ -9,6 +9,7 @@ body {
 h1 {
     font-size: 45px; 
 }
+
 .main-visual {
     display: flex;
     flex-direction: column;

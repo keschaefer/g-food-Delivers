@@ -5,11 +5,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let orderList = document.querySelector('.order-in-progress')
     let addItem = document.querySelector('#add-items')
     let submitOrder = document.querySelector('#submit-order')
-    var menuSelection 
-    var menuSelectionPrice
-    var subTotalTally = 0
-    var subTotal = document.querySelector('.sub-total')
-    var tax = 
+    let menuSelection 
+    let menuSelectionPrice
+    let subTotalTally = 0
+    let tipAdd= document.querySelector('.add-tip')
+    let tipButton = document.querySelector('.tip-title')
+    let subTotal = document.querySelector('.sub-total')
+    let taxField = document.querySelector('.tax')
+    let totalField = document.querySelector('.total')
+    let total
 
     fetch('https://galvanize-eats-api.herokuapp.com/menu')
         .then(function (response) {
@@ -17,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
         .then(function (data) {
+            console.log(data)
             for (let i = 0; i < data.menu.length; i++) {
                 let button = document.createElement('button')
                 button.setAttribute('name', data.menu[i].name)
@@ -38,16 +43,61 @@ document.addEventListener("DOMContentLoaded", function (event) {
             addItem.addEventListener("click", function(event) {
                 event.preventDefault()
                 var quantity = parseInt(document.querySelector('.quantity').value)
-                console.log(quantity)
                 let li = document.createElement('li')
-                li.innerHTML = `${menuSelection} Qty. ${quantity} ${quantity * menuSelectionPrice}`
+                li.innerHTML = `${menuSelection} Qty. ${quantity} $${quantity * menuSelectionPrice}`
                 orderList.appendChild(li)
-                subTotalTally += menuSelectionPrice * quantity
-                subTotal.innerHTML = `Subtotal    $ ${subTotalTally}`
                 foodMenuHead.innerHTML = "Add Additional Items"
-            })
-        })
+                subTotalTally += menuSelectionPrice * quantity
+                subTotal.innerHTML = `Subtotal    $${subTotalTally}`
+                var tax = (subTotalTally * .075).toFixed(2)
+                taxField.innerHTML = `Tax      $${tax}`
+                total = (subTotalTally * 1.075).toFixed(2)
+                totalField.innerHTML = `Total       $${total}`
+                return data
+            }) 
+        })    
+            .then(function(data) {
+                tipButton.addEventListener("click", function() {
+                newTotal = parseFloat(total) + parseFloat(tipAdd.value)
+                console.log(total)
+                totalField.innerHTML = `Total       $${newTotal}`
+                })
+            })  
 
+            .then(function () {
+                submitOrder.addEventListener('click', submit)
+                function submit(event) {
+                    event.preventDefault();
+                    let fullName = document.querySelector('#name-full').value
+                    let phoneNumber = document.querySelector('#phone-info').value
+                    let streetAddress = document.querySelector('#inputAddress').value
+                    let city = document.querySelector('#inputCity').value
+                    let state = docuemnt.querySelector('#inputState').value
+                    let zipcode = document.querySelector('#inputZip').value
+                    let submitObject= ({
+                        "fullName": fullName,
+                        "phoneNumber": phoneNumber,
+                        "streetAddress": streetAddress,
+                        "city": city,
+                        "state": state,
+                        "zipcode": zipcode,
+                    })
+                    console.log(submitObject)
+                    fetch ("https://galvanize-eats-api.herokuapp.com/orders", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json; charset=utf-8"
+                        },
+                        body: JSON.stringify(submitObject)
+                    })
+                    .then(function (){
+                        
+
+                        
+                    })
+                } 
+            })
+            
         .catch(function (error) {
             console.log(error)
         });
