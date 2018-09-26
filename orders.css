@@ -21,13 +21,14 @@ main {
 .order-in-progress-cont {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
 }
 
 .order-box {
     border: 1px solid black;
     height:400px;
     width: 250px;
+    text-align: left;
 }
 
 .form {
@@ -47,6 +48,10 @@ main {
     align-content: center;
 }
 
+.order-in-progress {
+    list-style: none;
+    text-align: left;
+}
 footer {
     text-align: center;
 }

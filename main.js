@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 event.preventDefault()
                 var quantity = parseInt(document.querySelector('.quantity').value)
                 let li = document.createElement('li')
-                li.innerHTML = `${menuSelection} Qty. ${quantity} $${quantity * menuSelectionPrice}`
+                li.innerHTML = `${quantity} x ${menuSelection} $${quantity * menuSelectionPrice}`
                 orderList.appendChild(li)
                 foodMenuHead.innerHTML = "Add Additional Items"
                 subTotalTally += menuSelectionPrice * quantity
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     let phoneNumber = document.querySelector('#phone-info').value
                     let streetAddress = document.querySelector('#inputAddress').value
                     let city = document.querySelector('#inputCity').value
-                    let state = docuemnt.querySelector('#inputState').value
+                    let state = document.querySelector('#inputState').value
                     let zipcode = document.querySelector('#inputZip').value
                     let submitObject= ({
                         "fullName": fullName,
