@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 event.preventDefault()
                 var quantity = parseInt(document.querySelector('.quantity').value)
                 let li = document.createElement('li')
-                li.innerHTML = `${quantity} x ${menuSelection} $${quantity * menuSelectionPrice}`
+                li.innerHTML = `${quantity} x     ${menuSelection} $${quantity * menuSelectionPrice}`
                 orderList.appendChild(li)
                 foodMenuHead.innerHTML = "Add Additional Items"
                 subTotalTally += menuSelectionPrice * quantity
@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         body: JSON.stringify(submitObject)
                     })
                     .then(function (){
-                        
-
-                        
+                        swal("Congratulations!", "Your Delivery is on the Way!", "success") 
                     })
                 } 
             })
