@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let subTotalTally = 0
     let tipAdd= document.querySelector('.add-tip')
     let tipButton = document.querySelector('.tip-title')
-    let subTotal = document.querySelector('.sub-total')
-    let taxField = document.querySelector('.tax')
-    let totalField = document.querySelector('.total')
+    let subTotalField = document.querySelector('.sub-total-field')
+    let taxField = document.querySelector('.tax-field')
+    let totalField = document.querySelector('.total-field')
     let total
 
     fetch('https://galvanize-eats-api.herokuapp.com/menu')
@@ -56,17 +56,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 menuItem.setAttribute('class', '.col-md-6') 
                 orderItem.appendChild(menuItem)
                 let menuPrice = document.createElement('div')
-                menuPrice.innerHTML = `${quantity * menuSelectionPrice}`
+                menuPrice.innerHTML = `$${quantity * menuSelectionPrice}`
                 menuPrice.setAttribute('class', '.col-md-3')
                 orderPrice.appendChild(menuPrice)
                 foodMenuHead.innerHTML = "Add Additional Items"
-                // subTotalTally += menuSelectionPrice * quantity
-                // subTotal.innerHTML = `Subtotal    $${subTotalTally}`
-                // var tax = (subTotalTally * .075).toFixed(2)
-                // taxField.innerHTML = `Tax      $${tax}`
-                // total = (subTotalTally * 1.075).toFixed(2)
-                // totalField.innerHTML = `Total       $${total}`
-                // return data
+                subTotalTally += menuSelectionPrice * quantity
+                subTotalField.innerHTML = `$${subTotalTally}`
+                var tax = (subTotalTally * .0765).toFixed(2)
+                taxField.innerHTML = `$${tax}`
+                total = (subTotalTally * 1.0765).toFixed(2)
+                totalField.innerHTML = `$${total}`
+                return data
             }) 
         })    
             .then(function(data) {
