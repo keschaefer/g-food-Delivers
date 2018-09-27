@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(function (data) {
             foodMenu.addEventListener("click", function(event) {
                 event.preventDefault()
+                console.log(event.target)
                 foodMenuHead.innerHTML = event.target.innerHTML
                 menuSelection = event.target.name
                 menuSelectionPrice = event.target.value
@@ -74,6 +75,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     let city = document.querySelector('#inputCity').value
                     let state = document.querySelector('#inputState').value
                     let zipcode = document.querySelector('#inputZip').value
+                    let order = document.querySelectorAll('li')
+                    console.log(order)
+                    let orderArr = []
+                    for (let i = 0; i < order.length; i++){
+                        orderArr.push(order[i].innerText)
+                    }
+
                     let submitObject= ({
                         "fullName": fullName,
                         "phoneNumber": phoneNumber,
@@ -81,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         "city": city,
                         "state": state,
                         "zipcode": zipcode,
+                        "order": orderArr,
                     })
                     console.log(submitObject)
                     fetch ("https://galvanize-eats-api.herokuapp.com/orders", {

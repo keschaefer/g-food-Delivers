@@ -3,42 +3,49 @@ body {
     flex-direction: column;
     height: 100%;
     font-family: 'Abel', sans-serif; 
-    background-color: #EDF0F3
+    background-color: rgb(245, 247, 226);
+    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
 }
 
 h1 {
-    font-size: 45px; 
+    font-size: 75px; 
+    padding-top: 8%;
 }
-
 .main-visual {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-image: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/4344367/Candide-2.0.JPG");
-    opacity: .75;
+    background-image: url("./media/restaurant-hero.JPG");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    opacity: .75; 
+    height: 60vh;
     width: 100vw;
     color: white;
 }
 
 .submit-button {
     margin: 2em;
-    background-color: #FFC300;
-    width: 30vw;
+    border-radius: 10px;
+    border: none;
+    width: 25vw;
+    height: 6vh;
+    font-size: 1.5em;
+    background-color: #193A5B;
+    color: white;
 }
 
 a:visited {
-    color: black;
+    color: white;
 }
 
 .content {
     display: flex;
     flex-direction: row;
-    padding: 1em;
-    width: 100vw;
+    padding-left: 2em;
+    padding-right: 2em;
+    /* width: 100vw; */
 }
 
 .info {
@@ -48,4 +55,14 @@ a:visited {
 footer {
     margin: 2em;
     text-align: center;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon {
+    margin-left: 3px;
+    margin-right: 3px;
 }
