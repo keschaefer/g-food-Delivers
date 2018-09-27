@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let foodMenuHead = document.querySelector('#foodMenuHead')
     let foodMenu = document.querySelector('#foodMenuDropdown')
-    let orderList = document.querySelector('.order-in-progress')
+    let orderQty = document.querySelector('#qty')
+    let orderItem = document.querySelector('#menu-item')
+    let orderPrice = document.querySelector('#menu-price')
     let addItem = document.querySelector('#add-items')
     let submitOrder = document.querySelector('#submit-order')
     let menuSelection 
@@ -44,17 +46,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
             addItem.addEventListener("click", function(event) {
                 event.preventDefault()
                 var quantity = parseInt(document.querySelector('.quantity').value)
-                let li = document.createElement('li')
-                li.innerHTML = `${quantity} x     ${menuSelection} $${quantity * menuSelectionPrice}`
-                orderList.appendChild(li)
+                console.log(quantity)
+                let qty = document.createElement('div')
+                qty.innerHTML = `${quantity} x`
+                qty.setAttribute('class', '.col-md-3')
+                orderQty.appendChild(qty)
+                let menuItem = document.createElement('div')  
+                menuItem.innerHTML = `${menuSelection}` 
+                menuItem.setAttribute('class', '.col-md-6') 
+                orderItem.appendChild(menuItem)
+                let menuPrice = document.createElement('div')
+                menuPrice.innerHTML = `${quantity * menuSelectionPrice}`
+                menuPrice.setAttribute('class', '.col-md-3')
+                orderPrice.appendChild(menuPrice)
                 foodMenuHead.innerHTML = "Add Additional Items"
-                subTotalTally += menuSelectionPrice * quantity
-                subTotal.innerHTML = `Subtotal    $${subTotalTally}`
-                var tax = (subTotalTally * .075).toFixed(2)
-                taxField.innerHTML = `Tax      $${tax}`
-                total = (subTotalTally * 1.075).toFixed(2)
-                totalField.innerHTML = `Total       $${total}`
-                return data
+                // subTotalTally += menuSelectionPrice * quantity
+                // subTotal.innerHTML = `Subtotal    $${subTotalTally}`
+                // var tax = (subTotalTally * .075).toFixed(2)
+                // taxField.innerHTML = `Tax      $${tax}`
+                // total = (subTotalTally * 1.075).toFixed(2)
+                // totalField.innerHTML = `Total       $${total}`
+                // return data
             }) 
         })    
             .then(function(data) {

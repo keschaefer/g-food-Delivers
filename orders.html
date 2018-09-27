@@ -2,61 +2,67 @@
 <html lang="en">
 
 <head>
-  <title>Galvanize Eats!</title>
+  <title>g-food order</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link rel="stylesheet" href="./orders.css">
 </head>
 
 <body>
   <header>
-    <h2>Galvanize Eats!</h2>
+    <h2>g-food delivers</h2>
   </header>
 
   <main>
     <div class="row">
       <div class="form col-md-8">
 
-        <div class="dropdown row">
+        <div class="menu-ordering row">
           <div class="main-menu">
-              <button class="btn btn-info dropdown-toggle col-6 info" id="foodMenuHead" type="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Galvanize Eats Menu
+            <button class="btn dropdown-toggle info" id="foodMenuHead" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Galvanize Eats Menu
+            </button>
+            <div class="dropdown-menu" id="foodMenuDropdown" aria-labelledby="dropdownMenuButton">
+            </div>
+          </div>
+          <div class="col-3 info">
+            <h4>Quantity</h4>
+          </div>
+          <input class=" col-3 quantity" type="text" placeholder="Qty">
+        </div>
+
+        <div class="row">
+          <div class="col-3"></div>
+          <button class="btn info col-6" id="add-items">Add Items
           </button>
-          <div class="dropdown-menu" id="foodMenuDropdown" aria-labelledby="dropdownMenuButton">
+          <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+
+          <div class="name-full info col-md-6">
+            <h4>Full Name</h4>
+            <input type="text" placeholder="Jane Doe" id="name-full">
+          </div>
+
+          <div class="info col-md-6">
+            <h4>Phone Number</h4>
+            <input type="text" id="phone-info" placeholder="555 555 5555">
           </div>
         </div>
-          <div class= "col-6 info">
-              <h4>Quantity</h4>
-              <input class="quantity" type="text" placeholder="Qty">
-            </div>
-        </div>
-        
-        <button class="btn btn-info info" id="add-items">Add Items
-        </button>
-
-        <div class="name-full info">
-          <h4>Full Name</h4>
-          <input type="text" placeholder="Jane Doe" id= "name-full">
-        </div>
-
-        <div>
-          <h4>Phone Number</h4>
-          <input type="text" id="phone-info" placeholder="555 555 5555">
-        </div>
-
         <div class="form-group info">
           <h4>Street Address</h4>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
 
         <div class="form-row info">
-          <div class="form-group col-md-6">
+          <div class="form-group info col-md-6">
             <h4>City</h4>
             <input type="text" class="form-control" id="inputCity">
           </div>
@@ -70,23 +76,40 @@
           </div>
         </div>
 
-        <button id="submit-order">Deliver It!</button>
-
+        <div class="row">
+          <div class="col-md-3"></div>
+          <button class="btn info col-md-6" id="submit-order">Deliver It!</button>
+          <div class="col-md-3"></div>
+        </div>
       </div>
 
-      <div class= "order-in-progress-cont col-md-4">
-          <h4>Your Order</h4>
-          <div class= "order-box"> 
-          <ul class="order-in-progress"></ul>
+      <div class="order-in-progress-cont col-md-4">
+        <div class="row">
+          <h3>Your Order</h3>
+        </div>
+        <div class="row order-box">
+          <div class="col-md-3" id= "qty"></div>
+          <div class="col-md-6" id= "menu-item"></div>
+          <div class="col-md-3" id= "menu-price"></div>
+        </div>
+          <div class="row">
+            <div class="subtotal-title col-md-8">Subtotal</div>
+            <div class="sub-total-field col-md-4"></div>
           </div>
-        <h5 class= "sub-total">Subtotal</h5>
-        <h5 class= "tax">Tax</h5>
-        <button class= "tip-title">Add Tip</button>
-        <input class= "add-tip" type = "text" placeholder= "Enter Tip Amount"> 
-        <h5 class= "total">Total</h5>
+          <div class="row">
+            <div class="tax-title col-md-8">Tax</div>
+            <div class="tax-field col-md-4"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 tip-button"> <button>Add Tip</button> </div>
+            <input class="col-md-4 add-tip-field" type="text" placeholder="Enter Tip Amount">
+          </div>
+          <div class="row">
+            <div class="col-md-8 total-title">Total</div>
+            <div class="col-md-4 total-field"></div>
+          </div>
 
-      </div>
-    </div>
+        </div>
   </main>
   <footer>
     <p>Galvanize 2018 + Denver, CO</p>
@@ -100,7 +123,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
     crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./main.js"></script>
 </body>
 

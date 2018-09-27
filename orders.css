@@ -2,11 +2,15 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-family: 'Playfair Display', serif; 
+    font-family: 'Abel', sans-serif; 
+    background-color: rgb(245, 247, 226);
+    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");
 }
 
 header {
     margin: 1em;
+    font-size: 50px;
+    border-bottom: 1px solid black;
 }
 
 h4 {
@@ -24,18 +28,20 @@ main {
     justify-content: left;
 }
 
-.order-box {
+/* .order-box {
     border: 1px solid black;
     height:400px;
     width: 250px;
     text-align: left;
-}
+} */
 
 .form {
     padding: 5%;
     display: flex;
     flex-direction: column;
     align-items: space-around;
+    border: 1px solid black;
+    background-color: white;
 }
 
 .info {
@@ -54,4 +60,15 @@ main {
 }
 footer {
     text-align: center;
+}
+
+.btn {
+    background-color: #193A5B;
+    color: white;
+}
+
+.menu-ordering {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
 }
