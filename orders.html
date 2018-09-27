@@ -20,7 +20,8 @@
 
   <main>
     <div class="row">
-      <div class="form col-md-8">
+      
+      <div class="form col-md-7">
 
         <div class="menu-ordering row">
           <div class="main-menu">
@@ -34,7 +35,7 @@
           <div class="col-3 info">
             <h4>Quantity</h4>
           </div>
-          <input class=" col-3 quantity" type="text" placeholder="Qty">
+          <input class= "col-3 quantity" type="text" placeholder="Qty">
         </div>
 
         <div class="row">
@@ -45,18 +46,18 @@
         </div>
 
         <div class="row">
-
           <div class="name-full info col-md-6">
             <h4>Full Name</h4>
             <input type="text" placeholder="Jane Doe" id="name-full">
           </div>
 
-          <div class="info col-md-6">
+          <div class="col-md-6 info">
             <h4>Phone Number</h4>
             <input type="text" id="phone-info" placeholder="555 555 5555">
           </div>
         </div>
-        <div class="form-group info">
+
+        <div class="row form-group info">
           <h4>Street Address</h4>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
@@ -83,34 +84,37 @@
         </div>
       </div>
 
+        <div class= "col-md-1"></div>
       <div class="order-in-progress-cont col-md-4">
-        <div class="row">
+        <div class="row order-header">
           <h3>Your Order</h3>
         </div>
         <div class="row order-box">
-          <div class="col-md-3" id= "qty"></div>
-          <div class="col-md-6" id= "menu-item"></div>
-          <div class="col-md-3" id= "menu-price"></div>
+          <div class="col-md-3" id="qty"></div>
+          <div class="col-md-6" id="menu-item"></div>
+          <div class="col-md-3" id="menu-price"></div>
         </div>
-          <div class="row">
-            <div class="subtotal-title col-md-8">Subtotal</div>
-            <div class="sub-total-field col-md-4"></div>
-          </div>
-          <div class="row">
-            <div class="tax-title col-md-8">Tax</div>
-            <div class="tax-field col-md-4"></div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 tip-button"> <button>Add Tip</button> </div>
-            <input class="col-md-4 add-tip-field" type="text" placeholder="Enter Tip Amount">
-          </div>
-          <div class="row">
-            <div class="col-md-8 total-title">Total</div>
-            <div class="col-md-4 total-field"></div>
-          </div>
-
+        <div class="row order">
+          <div class="subtotal-title col-md-9">Subtotal</div>
+          <div class="sub-total-field col-md-3"></div>
         </div>
+        <div class="row order">
+          <div class="tax-title col-md-9">Tax</div>
+          <div class="tax-field col-md-3"></div>
+        </div>
+        <div class="row order">
+          <div class="col-md-6 tip-button"> <button class= "btn">Add Tip</button> </div>
+          <input class="col-md-6 add-tip-field" type="text" placeholder="Enter Tip Amount">
+        </div>
+        <div class="row order">
+          <div class="col-md-9 total-title">Total</div>
+          <div class="col-md-3 total-field"></div>
+        </div>
+        </div>
+    </div>
+    
   </main>
+
   <footer>
     <p>Galvanize 2018 + Denver, CO</p>
   </footer>

@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let menuSelection 
     let menuSelectionPrice
     let subTotalTally = 0
-    let tipAdd= document.querySelector('.add-tip')
-    let tipButton = document.querySelector('.tip-title')
+    let quantityField = document.querySelector('.quantity')
+    console.log(quantityField)
+    let tipAdd= document.querySelector('.add-tip-field')
+    let tipButton = document.querySelector('.tip-button')
     let subTotalField = document.querySelector('.sub-total-field')
     let taxField = document.querySelector('.tax-field')
     let totalField = document.querySelector('.total-field')
@@ -46,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             addItem.addEventListener("click", function(event) {
                 event.preventDefault()
                 var quantity = parseInt(document.querySelector('.quantity').value)
-                console.log(quantity)
                 let qty = document.createElement('div')
                 qty.innerHTML = `${quantity} x`
                 qty.setAttribute('class', '.col-md-3')
@@ -66,14 +67,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 taxField.innerHTML = `$${tax}`
                 total = (subTotalTally * 1.0765).toFixed(2)
                 totalField.innerHTML = `$${total}`
+                quantityField.value = ""
                 return data
             }) 
         })    
             .then(function(data) {
                 tipButton.addEventListener("click", function() {
                 newTotal = parseFloat(total) + parseFloat(tipAdd.value)
-                console.log(total)
-                totalField.innerHTML = `Total       $${newTotal}`
+                totalField.innerHTML = `${newTotal}`
+                tipAdd.innerHTML = ""
                 })
             })  
 
