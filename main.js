@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let menuSelectionPrice
     let subTotalTally = 0
     let quantityField = document.querySelector('.quantity')
-    console.log(quantityField)
     let tipAdd= document.querySelector('.add-tip-field')
     let tipButton = document.querySelector('.tip-button')
     let subTotalField = document.querySelector('.sub-total-field')
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         })
 
         .then(function (data) {
-            console.log(data)
             for (let i = 0; i < data.menu.length; i++) {
                 let button = document.createElement('button')
                 button.setAttribute('name', data.menu[i].name)
@@ -40,35 +38,39 @@ document.addEventListener("DOMContentLoaded", function (event) {
         .then(function (data) {
             foodMenu.addEventListener("click", function(event) {
                 event.preventDefault()
-                console.log(event.target)
                 foodMenuHead.innerHTML = event.target.innerHTML
                 menuSelection = event.target.name
                 menuSelectionPrice = event.target.value
             }) 
             addItem.addEventListener("click", function(event) {
                 event.preventDefault()
-                var quantity = parseInt(document.querySelector('.quantity').value)
+                var quantity = document.querySelector('.quantity').value
                 let qty = document.createElement('div')
-                qty.innerHTML = `${quantity} x`
-                qty.setAttribute('class', '.col-md-3')
-                orderQty.appendChild(qty)
-                let menuItem = document.createElement('div')  
-                menuItem.innerHTML = `${menuSelection}` 
-                menuItem.setAttribute('class', '.col-md-6') 
-                orderItem.appendChild(menuItem)
-                let menuPrice = document.createElement('div')
-                menuPrice.innerHTML = `$${quantity * menuSelectionPrice}`
-                menuPrice.setAttribute('class', '.col-md-3')
-                orderPrice.appendChild(menuPrice)
-                foodMenuHead.innerHTML = "Add Additional Items"
-                subTotalTally += menuSelectionPrice * quantity
-                subTotalField.innerHTML = `$${subTotalTally}`
-                var tax = (subTotalTally * .0765).toFixed(2)
-                taxField.innerHTML = `$${tax}`
-                total = (subTotalTally * 1.0765).toFixed(2)
-                totalField.innerHTML = `$${total}`
-                quantityField.value = ""
-                return data
+                if (quantity === '') {
+                    swal("Wait!", "You forgot to add a quantity", "warning");
+                } else {
+                    quantity = parseInt(quantity)
+                    qty.innerHTML = `${quantity} x`
+                    qty.setAttribute('class', '.col-md-3')
+                    orderQty.appendChild(qty)  
+                    let menuItem = document.createElement('div')  
+                    menuItem.innerHTML = `${menuSelection}` 
+                    menuItem.setAttribute('class', '.col-md-6') 
+                    orderItem.appendChild(menuItem)
+                    let menuPrice = document.createElement('div')
+                    menuPrice.innerHTML = `$${quantity * menuSelectionPrice}`
+                    menuPrice.setAttribute('class', '.col-md-3')
+                    orderPrice.appendChild(menuPrice)
+                    foodMenuHead.innerHTML = "Add Additional Items"
+                    subTotalTally += menuSelectionPrice * quantity
+                    subTotalField.innerHTML = `$${subTotalTally}`
+                    var tax = (subTotalTally * .0765).toFixed(2)
+                    taxField.innerHTML = `$${tax}`
+                    total = (subTotalTally * 1.0765).toFixed(2)
+                    totalField.innerHTML = `$${total}`
+                    quantityField.value = ""
+                    return data
+                }
             }) 
         })    
             .then(function(data) {
