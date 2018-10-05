@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 tipButton.addEventListener("click", function() {
                 newTotal = parseFloat(total) + parseFloat(tipAdd.value)
                 totalField.innerHTML = `${newTotal}`
-                tipAdd.innerHTML = ""
+                tipAdd.innerHTML = "Change Tip"
                 })
             })  
 
