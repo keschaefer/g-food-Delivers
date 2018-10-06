@@ -1,15 +1,15 @@
-##g-food Online Ordering
+## g-food Online Ordering
 
 g-food consisits of a homepage and an ordering page built in html, css, and javascript. 
 
-##Website
-This site is hosted at [http://g-foodeats-keschaefer.surge.sh/](http://g-foodeats-keschaefer.surge.sh/)
+## Website
+This site is hosted at http://g-foodeats-keschaefer.surge.sh/
 
-##Preview
+## Preview
 
-![website img] (https://snag.gy/tBCreg.jpg)
+![website img](https://snag.gy/tBCreg.jpg)
 
-##Future Functionality
+## Future Functionality
 - make all input fields required
 - add dropdown menu for State
 - clean up formatting of ordering page: center form, display full page
